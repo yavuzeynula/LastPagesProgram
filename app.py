@@ -25,7 +25,7 @@ from openpyxl.styles import Alignment, Font, PatternFill
 
 
 __version__ = "0.3.2"
-GITHUB_REPO = "yavuzzeynulat-cell/LastPagesProgram"
+GITHUB_REPO = "yavuzeynula/LastPagesProgram"
 RELEASES_API = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 UPDATE_ASSET_NAME = "LastPagesApp.exe"
 

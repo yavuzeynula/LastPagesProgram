@@ -47,7 +47,7 @@ type "%TEMP%\pypath.txt"
 echo.
 
 echo Launcher indiriliyor...
-curl -sSLo launcher.py "https://raw.githubusercontent.com/yavuzzeynulat-cell/LastPagesProgram/main/launcher.py" 2>nul
+curl -sSLo launcher.py "https://raw.githubusercontent.com/yavuzeynula/LastPagesProgram/main/launcher.py" 2>nul
 
 if not exist launcher.py (
     echo.

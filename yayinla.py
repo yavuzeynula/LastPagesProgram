@@ -14,7 +14,7 @@ import urllib.request
 from pathlib import Path
 
 SURUM = sys.argv[1].lstrip("v") if len(sys.argv) > 1 else "0.3.2"  # python yayinla.py 0.3.3
-REPO = "yavuzzeynulat-cell/LastPagesProgram"
+REPO = "yavuzeynula/LastPagesProgram"
 HERE = Path(__file__).resolve().parent
 EXE = HERE / "dist" / "LastPagesApp.exe"
 ZINCIR = HERE.parent / "local reading" / "kod" / "zincir.py"

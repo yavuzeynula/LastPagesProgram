@@ -16,7 +16,7 @@ from tkinter import filedialog, scrolledtext, ttk, messagebox
 from urllib.request import urlretrieve
 from urllib.error import URLError
 
-REPO = "https://raw.githubusercontent.com/yavuzzeynulat-cell/LastPagesProgram/main"
+REPO = "https://raw.githubusercontent.com/yavuzeynula/LastPagesProgram/main"
 HERE = os.path.dirname(os.path.abspath(sys.argv[0]))
 CONFIG = os.path.join(HERE, "config.txt")
 
