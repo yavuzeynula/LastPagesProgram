@@ -20,12 +20,22 @@ EXE = HERE / "dist" / "LastPagesApp.exe"
 ZINCIR = HERE.parent / "local reading" / "kod" / "zincir.py"
 
 
+def oku(p):
+    with open(p, encoding="utf-8", newline="") as f:  # satir sonlari (CRLF) korunur
+        return f.read()
+
+
+def yaz(p, s):
+    with open(p, "w", encoding="utf-8", newline="") as f:
+        f.write(s)
+
+
 def git(*a):
     subprocess.run(["git", *a], cwd=HERE, check=True)
 
 
 def duzelt_zincir():
-    s = ZINCIR.read_text(encoding="utf-8", newline="")
+    s = oku(ZINCIR)
     if "g.size == 0" in s:
         print("zincir.py: duzeltme zaten var")
         return
@@ -35,16 +45,16 @@ def duzelt_zincir():
         sys.exit("HATA: zincir.py beklenen yerde degil, durdum")
     yeni = eski + ("    if g.size == 0:  # hucre sayfa disina tasti: OpenCV bos goruntude hata verir" + nl
                    + "        return g, 0" + nl)
-    ZINCIR.write_text(s.replace(eski, yeni, 1), encoding="utf-8", newline="")
+    yaz(ZINCIR, s.replace(eski, yeni, 1))
     print("zincir.py: duzeltme eklendi")
 
 
 def surum_ve_push():
     app = HERE / "app.py"
-    s = app.read_text(encoding="utf-8", newline="")
+    s = oku(app)
     s2 = re.sub(r'^__version__ = ".+"', f'__version__ = "{SURUM}"', s, count=1, flags=re.M)
     if s2 != s:
-        app.write_text(s2, encoding="utf-8", newline="")
+        yaz(app, s2)
         git("commit", "-m", f"v{SURUM}: Yerel AI bos hucrede OpenCV hatasiyla cokmez", "app.py")
     git("push")
 
