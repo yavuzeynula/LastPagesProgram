@@ -1,4 +1,4 @@
-"""Tek komutla guncelleme: python yayinla.py  (Windows'ta, proje klasorunde)
+"""Tek komutla guncelleme: python yayinla.py <surum>  (Windows'ta; Mac'ten: python3 ~/tools/yayin/vm.py yayinla.py <surum>)
 
 1. local reading/kod/zincir.py'de bos hucre duzeltmesi yoksa ekler
 2. app.py surumunu SURUM yapar, commit + push
@@ -13,7 +13,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-SURUM = "0.3.2"
+SURUM = sys.argv[1].lstrip("v") if len(sys.argv) > 1 else "0.3.2"  # python yayinla.py 0.3.3
 REPO = "yavuzzeynulat-cell/LastPagesProgram"
 HERE = Path(__file__).resolve().parent
 EXE = HERE / "dist" / "LastPagesApp.exe"
